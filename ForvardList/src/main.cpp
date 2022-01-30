@@ -3,7 +3,7 @@
 using namespace std;
 
 #define tab "\t"
-#define delimiter cout << "\n---------------------------------------------\n"
+#define delimiter cout << "\n---------------------------------------------\n\n"
 
 class Element
 {
@@ -26,10 +26,12 @@ public:
 class ForwardList
 {
 	Element* Head;
+	int count;
 public:
 	ForwardList()
 	{
 		Head = nullptr;
+		count = 0;
 		cout << "LConstructor:\t" << this << endl;
 	}
 
@@ -45,6 +47,19 @@ public:
 		Element* New = new Element(Data);
 		New->pNext = Head;
 		Head = New;
+	}
+	void push_back(int Data)
+	{
+		if (Head == nullptr)
+		{
+			return push_front(Data);
+		}
+		Element* Temp = Head;
+		while (Temp->pNext)
+		{
+			Temp = Temp->pNext;
+		}
+		Temp->pNext = new Element(Data);
 	}
 
 	//------------------------Methods---------------------------------
@@ -71,5 +86,10 @@ void main()
 	{
 		list.push_front(rand() % 100);
 	}
+	delimiter;
+	list.print();
+	delimiter;
+	list.push_back(rand() % 100);
+	delimiter;
 	list.print();
 }
