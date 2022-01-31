@@ -26,12 +26,10 @@ public:
 class ForwardList
 {
 	Element* Head;
-	int count;
 public:
 	ForwardList()
 	{
 		Head = nullptr;
-		count = 0;
 		cout << "LConstructor:\t" << this << endl;
 	}
 
@@ -61,7 +59,61 @@ public:
 		}
 		Temp->pNext = new Element(Data);
 	}
+	void pop_front()
+	{
+		Element* Erased = Head;
+		Head = Head->pNext;
+		delete Erased;
+	}
+	void pop_bask()
+	{
+		if (Head->pNext == nullptr)
+		{
+			return pop_front();
+		}
 
+		Element* Temp = Head;
+
+		while (Temp->pNext->pNext)
+		{
+			Temp = Temp->pNext;
+		}
+
+		delete Temp->pNext;
+
+		Temp->pNext = nullptr;
+	}
+	void insert(int index, int Data)
+	{
+		int count = 0;
+		Element* Temp = Head;
+
+		while (Temp)
+		{
+			Temp = Temp->pNext;
+			count++;
+		}
+
+		if (index > count)
+		{
+			cout << "Выход за пределы списка" << endl;
+			return;
+		}
+		if (index == 0 || Head == nullptr)
+		{
+			return push_front(Data);
+		}
+
+		Temp = Head;
+
+		for (int i = 0; i < index - 2; i++)
+		{
+			Temp = Temp->pNext;
+		}
+
+
+		Temp->pNext = new Element(Data, Temp->pNext);
+	}
 	//------------------------Methods---------------------------------
 
 	void print()const
@@ -90,6 +142,23 @@ void main()
 	list.print();
 	delimiter;
 	list.push_back(rand() % 100);
+	delimiter;
+	list.print();
+	delimiter;
+	list.pop_front();
+	delimiter;
+	list.print();
+	delimiter;
+	list.pop_bask();
+	delimiter;
+	list.print();
+	delimiter;
+	
+	int index;
+
+	cout << "Введите индекс добавляемого элемента: ";
+	cin >> index;
+	list.insert(index, rand() % 100);
 	delimiter;
 	list.print();
 }
