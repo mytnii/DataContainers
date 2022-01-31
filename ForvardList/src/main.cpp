@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 using namespace std;
 
@@ -96,7 +96,7 @@ public:
 
 		if (index > count)
 		{
-			cout << "Âûõîä çà ïğåäåëû ñïèñêà" << endl;
+			cout << "Ğ’Ñ‹Ñ…Ğ¾Ğ´ Ğ·Ğ° Ğ¿Ñ€ĞµĞ´ĞµĞ»Ñ‹ ÑĞ¿Ğ¸ÑĞºĞ°" << endl;
 			return;
 		}
 		if (index == 0 || Head == nullptr)
@@ -125,12 +125,12 @@ public:
 		}
 		if (index > count)
 		{
-			cout << "İëåìåíòà ïî çàäàííîìó èíäåêñó íå ñóùåñòâóåò" << endl;
+			cout << "Ğ­Ğ»ĞµĞ¼ĞµĞ½Ñ‚Ğ° Ğ¿Ğ¾ Ğ·Ğ°Ğ´Ğ°Ğ½Ğ½Ğ¾Ğ¼Ñƒ Ğ¸Ğ½Ğ´ĞµĞºÑÑƒ Ğ½Ğµ ÑÑƒÑ‰ĞµÑÑ‚Ğ²ÑƒĞµÑ‚" << endl;
 			return;
 		}
 		if (Head == nullptr)
 		{
-			cout << "Â ñïèñêå íåòó ıëåìåíòîâ" << endl;
+			cout << "Ğ’ ÑĞ¿Ğ¸ÑĞºĞµ Ğ½ĞµÑ‚Ñƒ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ²" << endl;
 			return;
 		}
 
@@ -175,7 +175,7 @@ void main()
 	setlocale(LC_ALL, "");
 
 	int n;
-	cout << "Ââåäèòå ğàçìåğ ñïèñêà: "; cin >> n;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ ÑĞ¿Ğ¸ÑĞºĞ°: "; cin >> n;
 	ForwardList list;
 	for (int i = 0; i < n; i++)
 	{
@@ -199,7 +199,7 @@ void main()
 	
 	int index;
 
-	cout << "Ââåäèòå èíäåêñ äîáàâëÿåìîãî ıëåìåíòà: ";
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ¸Ğ½Ğ´ĞµĞºÑ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼Ğ¾Ğ³Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ°: ";
 	cin >> index;
 
 	list.insert(index, rand() % 100);
@@ -207,7 +207,7 @@ void main()
 	list.print();
 	delimiter;
 
-	cout << "Ââåäèòå èíäåêñ óäàëÿåìîãî ıëåìåíòà:";
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ¸Ğ½Ğ´ĞµĞºÑ ÑƒĞ´Ğ°Ğ»ÑĞµĞ¼Ğ¾Ğ³Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ°:";
 	cin >> index;
 
 	list.erase(index);
