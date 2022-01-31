@@ -68,6 +68,10 @@ public:
 	}
 	void insert(int index, int Data)
 	{
+		if (Head == nullptr)
+		{
+			return push_front(Data);
+		}
 		if (index == 0)
 		{
 			return push_front(Data);
