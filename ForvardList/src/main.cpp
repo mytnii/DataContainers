@@ -106,13 +106,56 @@ public:
 
 		Temp = Head;
 
-		for (int i = 0; i < index - 2; i++)
+		for (int i = 0; i < index - 1; i++)
 		{
 			Temp = Temp->pNext;
 		}
 
 
 		Temp->pNext = new Element(Data, Temp->pNext);
+	}
+	void erase(int index)
+	{
+		int count = 0;
+		Element* Temp = Head;
+		while (Temp)
+		{
+			Temp = Temp->pNext;
+			count++;
+		}
+		if (index > count)
+		{
+			cout << "Ёлемента по заданному индексу не существует" << endl;
+			return;
+		}
+		if (Head == nullptr)
+		{
+			cout << "¬ списке нету элементов" << endl;
+			return;
+		}
+
+		Temp = Head;
+
+		
+
+		for (int i = 0; i < index; i++)
+		{
+			Temp = Temp->pNext;
+		}
+
+		Element* erase = Temp->pNext;
+
+		Temp = Head;
+
+		for (int i = 0; i < index - 1; i++)
+		{
+			Temp = Temp->pNext;
+		}
+		delete Temp->pNext;
+
+		Temp->pNext = erase;
+
+		delete erase;
 	}
 	//------------------------Methods---------------------------------
 
@@ -158,7 +201,17 @@ void main()
 
 	cout << "¬ведите индекс добавл€емого элемента: ";
 	cin >> index;
+
 	list.insert(index, rand() % 100);
 	delimiter;
 	list.print();
+	delimiter;
+
+	cout << "¬ведите индекс удал€емого элемента:";
+	cin >> index;
+
+	list.erase(index);
+	delimiter;
+	list.print();
+
 }
