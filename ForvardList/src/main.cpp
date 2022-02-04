@@ -167,10 +167,27 @@ public:
 		cout << "Количество элементов списка: " << size << endl;
 		cout << "Общее количество элементов: " << Head->count << endl;
 	}
+
+	void unique(int del_number)
+	{
+		int index = 0;
+		Element* Temp = Head;
+		while (Temp->pNext)
+		{
+			++index;
+			if (Temp->Data == del_number)
+			{
+				erase(index);
+			}
+		}
+	}
+
+	friend void list_completion(ForwardList& list, const int size);
 };
 
 //#define BASE_CHESK
 //#define DESTRUCTOR_CHECK
+//#define HOME_WORC
 
 void main()
 {
@@ -233,16 +250,37 @@ void main()
 	cout << "Список заполнен" << endl;
 #endif // DESTRUCTOR_CHECK
 
+#ifdef HOME_WORC
 	int n;
 	cout << "Введите размер списка: " << endl;
 	cin >> n;
 	ForwardList list(n);
 	for (int i = 0; i < n; i++)
 	{
-		list[i]= rand() % 100;
+		list[i] = rand() % 100;
 	}
 	for (int i = 0; i < n; i++)
 	{
 		cout << list[i] << tab;
+	}
+#endif // HOME_WORC
+
+	int size;
+
+	cout << "Введите размер списка: " << endl;
+	cin >> size;
+
+	ForwardList list;
+	list_completion(list, size);
+	list.print();
+	
+
+}
+
+void list_completion(ForwardList& list, const int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		list.push_front(rand() % 10);
 	}
 }
