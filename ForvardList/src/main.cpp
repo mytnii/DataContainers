@@ -14,6 +14,14 @@ class Element
 	Element* pNext;
 	 static int count;
 public:
+	int get_Data()const
+	{
+		return Data;
+	}
+	Element* get_pNext()const
+	{
+		return pNext;
+	}
 	Element(int Data, Element* pNext = nullptr) : Data(Data), pNext(pNext)
 	{
 		count++;
@@ -30,6 +38,7 @@ public:
 };
 
 int Element::count = 0;
+
 
 class ForwardList
 {
@@ -89,15 +98,16 @@ public:
 		return Temp->Data;
 	}
 
-
+	
 
 	//-------------------------Addigng elements----------------------
 
 	void push_front(int Data)
 	{
-		Element* New = new Element(Data);
+		/*Element* New = new Element(Data);
 		New->pNext = Head;
-		Head = New;
+		Head = New;*/
+		Head = new Element(Data, Head);
 		size++;
 	}
 	void push_back(int Data)
@@ -106,13 +116,14 @@ public:
 		{
 			return push_front(Data);
 		}
-		Element* New = new Element(Data);
+		/*Element* New = new Element(Data);*/
 		Element* Temp = Head;
 		while (Temp->pNext)
 		{
 			Temp = Temp->pNext;
 		}
-		Temp->pNext = New;
+		/*Temp->pNext = New;*/
+		Temp->pNext = new Element(Data);
 		size++;
 
 	}
@@ -130,15 +141,16 @@ public:
 		{
 			return;
 		}
-		Element* New = new Element(Data);
+		/*Element* New = new Element(Data);*/
 		Element* Temp = Head;
 		for (int i = 0; i < index - 1; i++)
 		{
 			Temp = Temp->pNext;
 		}
 
-		New->pNext = Temp->pNext;
-		Temp->pNext = New;
+		/*New->pNext = Temp->pNext;
+		Temp->pNext = New;*/
+		Temp->pNext = new Element(Data, Temp->pNext);
 		size++;
 
 	}
@@ -200,11 +212,15 @@ public:
 
 	void print()const
 	{
-		Element* Temp = Head;
+		/*Element* Temp = Head;
 		while (Temp)
 		{
 			cout << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
 			Temp = Temp->pNext;
+		}*/
+		for (Element* Temp = Head; Temp; Temp = Temp->pNext)
+		{
+			cout << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
 		}
 		cout << "Количество элементов списка: " << size << endl;
 		cout << "Общее количество элементов: " << Head->count << endl;
