@@ -170,15 +170,18 @@ public:
 
 	void unique(int del_number)
 	{
-		int index = 0;
+		int index = 1;
 		Element* Temp = Head;
-		while (Temp->pNext)
+		while (Temp->pNext->pNext)
 		{
-			++index;
 			if (Temp->Data == del_number)
 			{
-				erase(index);
+				if (index == 1)
+				{
+					pop_front();
+				}
 			}
+			Temp = Temp->pNext;
 		}
 	}
 
@@ -265,6 +268,7 @@ void main()
 	}
 #endif // HOME_WORC
 
+	
 	int size;
 
 	cout << "¬ведите размер списка: " << endl;
@@ -273,7 +277,16 @@ void main()
 	ForwardList list;
 	list_completion(list, size);
 	list.print();
-	
+
+	int del_number;
+
+	cout << "¬ведите удал€емое число: ";
+	cin >> del_number;
+
+
+
+	list.unique(del_number);
+	list.print();
 
 }
 
