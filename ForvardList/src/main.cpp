@@ -42,12 +42,54 @@ public:
 		size = 0;
 		cout << "LConstructor:\t" << this << endl;
 	}
+	ForwardList(unsigned int size)
+	{
+		this->Head = nullptr;
+		this->size = 0;
+		for (int i = 0; i < size; i++)
+		{
+			push_front(0);
+		}
+	}
+
+	ForwardList(const std::initializer_list<int>& il) :ForwardList()
+	{
+		
+		for (const int* it = il.begin(); it != il.end(); it++)
+		{
+			push_back(*it);
+		}
+	}
 
 	~ForwardList()
 	{
 		while (Head)pop_front();
 		cout << "LDestructor:\t" << this << endl;
 	}
+
+	//------------------------Operators------------------------------
+
+	int& operator[](const int index)
+	{
+		Element* Temp = Head;
+		for (int i = 0; i < index; i++)
+		{
+			Temp = Temp->pNext;
+		}
+		return Temp->Data;
+	}
+
+	const int& operator[](const int index)const
+	{
+		Element* Temp = Head;
+		for (int i = 0; i < index; i++)
+		{
+			Temp = Temp->pNext;
+		}
+		return Temp->Data;
+	}
+
+
 
 	//-------------------------Addigng elements----------------------
 
@@ -171,6 +213,8 @@ public:
 
 //#define BASE_CHESK
 //#define DESTRUCTOR_CHECK
+//#define HOME_WORK1
+#define HOME_WORK_2
 
 void main()
 {
@@ -233,16 +277,24 @@ void main()
 	cout << "Список заполнен" << endl;
 #endif // DESTRUCTOR_CHECK
 
+#ifdef HOME_WORK1
 	int n;
 	cout << "Введите размер списка: " << endl;
 	cin >> n;
 	ForwardList list(n);
 	for (int i = 0; i < n; i++)
 	{
-		list[i]= rand() % 100;
+		list[i] = rand() % 100;
 	}
 	for (int i = 0; i < n; i++)
 	{
 		cout << list[i] << tab;
 	}
+	cout << endl;
+#endif // H
+
+#ifdef HOME_WORK_2
+	ForwardList list = { 3,5,8,13,21 };
+	list.print();
+#endif // HOME_WORK_2
 }
