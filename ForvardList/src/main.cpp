@@ -14,14 +14,6 @@ class Element
 	Element* pNext;
 	 static int count;
 public:
-	int get_Data()const
-	{
-		return Data;
-	}
-	Element* get_pNext()const
-	{
-		return pNext;
-	}
 	Element(int Data, Element* pNext = nullptr) : Data(Data), pNext(pNext)
 	{
 		count++;
@@ -35,6 +27,7 @@ public:
 	}
 
 	friend class ForwardList;
+	friend class Iterator;
 };
 
 int Element::count = 0;
@@ -145,7 +138,7 @@ public:
 		Element* Temp = Head;
 		for (int i = 0; i < index - 1; i++)
 		{
-			Temp = Temp->pNext;
+			Temp++;
 		}
 
 		/*New->pNext = Temp->pNext;
@@ -180,7 +173,7 @@ public:
 		Element* Temp = Head;
 		while (Temp->pNext->pNext)
 		{
-			Temp = Temp->pNext;
+			Temp++;
 		}
 		delete Temp->pNext;
 
@@ -200,7 +193,7 @@ public:
 		Element* Temp = Head;
 		for (int i = 0; i < index - 1; i++)
 		{
-			Temp = Temp->pNext;
+			Temp++;
 		}
 		Element* Erased = Temp->pNext;
 		Temp->pNext = Temp->pNext->pNext;
@@ -222,11 +215,48 @@ public:
 		{
 			cout << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
 		}
+		/*for (Iterator Temp = Head; Temp != nullptr; Temp++)
+		{
+			cout << *Temp << endl;
+		}*/
 		cout << "Количество элементов списка: " << size << endl;
 		cout << "Общее количество элементов: " << Head->count << endl;
 	}
 };
 
+class Iterator
+{
+	Element* Temp;
+public:
+	Iterator(Element* Temp = nullptr) :Temp(Temp)
+	{
+
+	}
+
+	~Iterator()
+	{
+
+	}
+
+
+	Iterator& operator++()
+	{
+		Iterator old = *this;
+		Temp = Temp->pNext;
+
+		return old;
+	}
+
+	bool operator!=(const Iterator& other)const
+	{
+		return this->Temp != other.Temp;
+	}
+
+	int& operator*()const
+	{
+		return Temp->Data;
+	}
+};
 //#define BASE_CHESK
 //#define DESTRUCTOR_CHECK
 //#define HOME_WORK1
