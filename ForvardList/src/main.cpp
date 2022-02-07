@@ -14,10 +14,6 @@ class Element
 	Element* pNext;
 	 static int count;
 public:
-	Element* get_pNext()const
-	{
-		return pNext;
-	}
 	Element(int Data, Element* pNext = nullptr) : Data(Data), pNext(pNext)
 	{
 		count++;
@@ -36,12 +32,64 @@ public:
 
 int Element::count = 0;
 
+class Iterator
+{
+	Element* Temp;
+public:
+	Iterator(Element* Temp = nullptr) :Temp(Temp)
+	{
+		cout << "ItConstryctor:\t" << this << endl;
+	}
+
+	~Iterator()
+	{
+		cout << "ItDestructor:\t" << this << endl;
+	}
+
+	Iterator& operator++()
+	{
+		Temp = Temp->pNext;
+
+		return *this;
+	}
+
+	Iterator operator++(int)
+	{
+		Iterator old = *this;
+		Temp = Temp->pNext;
+
+		return old;
+	}
+
+	bool operator ==(const Iterator& other)const
+	{
+		return this->Temp == other.Temp;
+	}
+
+	bool operator!=(const Iterator& other)const
+	{
+		return this->Temp != other.Temp;
+	}
+
+	int& operator*()
+	{
+		return Temp->Data;
+	}
+	int& operator*()const
+	{
+		return Temp->Data;
+	}
+};
 
 class ForwardList
 {
 	Element* Head;
 	unsigned int size;
 public:
+	Element* get_Head()const
+	{
+		return Head;
+	}
 	ForwardList()
 	{
 		Head = nullptr;
@@ -228,49 +276,16 @@ public:
 		{
 			cout << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
 		}
-		/*for (Iterator Temp = Head; Temp != nullptr; Temp++)
+		for (Iterator Temp = Head; Temp != nullptr; Temp++)
 		{
 			cout << *Temp << endl;
-		}*/
+		}
 		cout << "Количество элементов списка: " << size << endl;
 		cout << "Общее количество элементов: " << Head->count << endl;
 	}
 };
 
 
-class Iterator
-{
-	Element* Temp;
-public:
-	Iterator(Element* Temp = nullptr) :Temp(Temp)
-	{
-
-	}
-
-	~Iterator()
-	{
-
-	}
-
-
-	Iterator& operator++()
-	{
-		Iterator old = *this;
-		Temp = Temp->pNext;
-
-		return old;
-	}
-
-	bool operator!=(const Iterator& other)const
-	{
-		return this->Temp != other.Temp;
-	}
-
-	int& operator*()const
-	{
-		return Temp->Data;
-	}
-};
 //#define BASE_CHESK
 //#define DESTRUCTOR_CHECK
 //#define HOME_WORK1
@@ -356,5 +371,9 @@ void main()
 #ifdef HOME_WORK_2
 	ForwardList list = { 3,5,8,13,21 };
 	list.print();
+	//for (Iterator it = list.get_Head(); it != nullptr; it++)
+	//{
+	//	cout << *it << tab;
+	//}
 #endif // HOME_WORK_2
 }
