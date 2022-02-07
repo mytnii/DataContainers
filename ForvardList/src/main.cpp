@@ -14,6 +14,10 @@ class Element
 	Element* pNext;
 	 static int count;
 public:
+	Element* get_pNext()const
+	{
+		return pNext;
+	}
 	Element(int Data, Element* pNext = nullptr) : Data(Data), pNext(pNext)
 	{
 		count++;
@@ -201,6 +205,15 @@ public:
 		size--;
 	}
 
+	//Element& operator++(int Data)
+	//{
+
+	//	Element* old;
+	//	Temp = Temp->pNext;
+
+	//	return old;
+	//}
+
 	//------------------------Methods---------------------------------
 
 	void print()const
@@ -223,6 +236,7 @@ public:
 		cout << "Общее количество элементов: " << Head->count << endl;
 	}
 };
+
 
 class Iterator
 {
