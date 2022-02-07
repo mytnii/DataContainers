@@ -177,7 +177,7 @@ public:
 		Element* Temp = Head;
 		while (Temp->pNext->pNext)
 		{
-			Temp++;
+			Temp = Temp->pNext;
 		}
 		delete Temp->pNext;
 
@@ -197,7 +197,7 @@ public:
 		Element* Temp = Head;
 		for (int i = 0; i < index - 1; i++)
 		{
-			Temp++;
+			Temp = Temp->pNext;
 		}
 		Element* Erased = Temp->pNext;
 		Temp->pNext = Temp->pNext->pNext;
@@ -205,7 +205,7 @@ public:
 		size--;
 	}
 
-	//Element& operator++(int Data)
+	//Element& operator++()
 	//{
 
 	//	Element* old;
