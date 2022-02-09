@@ -115,6 +115,20 @@ public:
 		}
 	}
 
+	Iterator begin()
+	{
+
+		return Head;
+
+	}
+
+	Iterator end()
+	{
+
+		return nullptr;
+
+	}
+
 	~ForwardList()
 	{
 		while (Head)pop_front();
@@ -289,7 +303,7 @@ public:
 //#define BASE_CHESK
 //#define DESTRUCTOR_CHECK
 //#define HOME_WORK1
-#define HOME_WORK_2
+//#define HOME_WORK_2
 
 void main()
 {
@@ -376,4 +390,11 @@ void main()
 	//	cout << *it << tab;
 	//}
 #endif // HOME_WORK_2
+
+	ForwardList list = { 3,5,8,13,21 };
+	for (int i : list)
+	{
+		cout << i << tab;
+	}
+	cout << endl;
 }
