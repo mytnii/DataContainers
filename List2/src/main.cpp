@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ public:
     }
 
     /*------------------Adding elements------------------------*/
-    void push_front(int Data)
+    void push_front(const int Data)
     {
         if (Head == nullptr && Tail == nullptr)
         {
@@ -49,7 +49,7 @@ public:
         Head = Head->pPrev = new Element(Data, Head);
         ++size;
     }
-    void push_back(int Data)
+    void push_back(const int Data)
     {
         if (Head == nullptr && Tail == nullptr)
         {
@@ -57,6 +57,51 @@ public:
             return;
         }
         Tail = Tail->pNext = new Element(Data, nullptr, Tail);
+        ++size;
+    }
+
+    void insert(const int index, const int Data)
+    {
+        if (index > size)
+        {
+            cout << "Going beyond the list" << endl;
+            return;
+        }
+        if (index == 0)
+        {
+            push_front(Data);
+            return;
+        }
+        if (index == size)
+        {
+            push_back(Data);
+            return;
+        }
+
+        Element* Temp;
+
+        if (index < size / 2)
+        {
+            Temp = Head;
+            for (int i = 0; i < index; ++i)
+            {
+                Temp = Temp->pNext;
+            }
+        }
+        else
+        {
+            Temp = Tail;
+            for (int i = 0; i < size - index - 1; ++i)
+            {
+                Temp = Temp->pPrev;
+            }
+        }
+
+        Element* New = new Element(Data);
+        New->pNext = Temp;
+        New->pPrev = Temp->pPrev;
+        Temp->pPrev->pNext = New;
+        Temp->pPrev = New;
         ++size;
     }
 
@@ -98,21 +143,21 @@ public:
         for (Element* Temp = Head; Temp; Temp = Temp->pNext)
             cout << Temp->pPrev << "\t" << Temp << "\t"
             << Temp->Data << "\t" << Temp->pNext << endl;
-        cout << "Êîëè÷åñòâî ýëåìåíòîâ ñïèñêà:\t" << size << endl;
+        cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² ÑÐ¿Ð¸ÑÐºÐ°:\t" << size << endl;
     }
     void revers_print()const
     {
         for (Element* Temp = Tail; Temp; Temp = Temp->pPrev)
             cout << Temp->pPrev << "\t" << Temp << "\t"
             << Temp->Data << "\t" << Temp->pNext << endl;
-        cout << "Êîëè÷åñòâî ýëåìåíòîâ ñïèñêà:\t" << size << endl;
+        cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² ÑÐ¿Ð¸ÑÐºÐ°:\t" << size << endl;
     }
 };
 
 void main()
 {
     setlocale(LC_ALL, "");
-    int size = 3;
+    int size = 6;
     List list;
     for (int i = 0; i < size; i++)
     {
@@ -125,6 +170,11 @@ void main()
     list.push_back(123);
     list.print();
     list.pop_back();
+    list.print();
+    int index;
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼Ð¾Ð³Ð¾ ÐµÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°:\t";
+    cin >> index;
+    list.insert(index, 123);
     list.print();
 }
 
