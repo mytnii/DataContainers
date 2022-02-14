@@ -23,6 +23,8 @@ class List
     }*Head, * Tail;
     size_t size;
 public:
+
+    /*---------------------Constructors-------------------------*/
     List()
     {
         Head = Tail = nullptr;
@@ -35,7 +37,7 @@ public:
         cout << "LDestructor:\t" << this << endl;
     }
 
-    //------------------Adding elements-------------------------
+    /*------------------Adding elements------------------------*/
     void push_front(int Data)
     {
         if (Head == nullptr && Tail == nullptr)
@@ -45,7 +47,7 @@ public:
             return;
         }
         Head = Head->pPrev = new Element(Data, Head);
-        size++;
+        ++size;
     }
     void push_back(int Data)
     {
@@ -55,9 +57,10 @@ public:
             return;
         }
         Tail = Tail->pNext = new Element(Data, nullptr, Tail);
-        size++;
+        ++size;
     }
 
+    /*-----------------------Remowing elements-----------------------------------*/
     void pop_front()
     {
         if (Head == nullptr && Tail == nullptr)return;
@@ -65,14 +68,30 @@ public:
         {
             delete Head;
             Head = Tail = nullptr;
-            size--;
+            --size;
             return;
         }
         Head = Head->pNext;
         delete Head->pPrev;
         Head->pPrev = nullptr;
-        size--;
+        --size;
     }
+
+    void pop_back()
+    {
+        if (Head == Tail)
+        {
+            pop_front();
+            return;
+        }
+
+        Tail = Tail->pPrev;
+        delete Tail->pNext;
+        Tail->pNext = nullptr;
+        --size;
+    }
+
+    /*------------------------------Methods-------------------------------*/
 
     void print()const
     {
@@ -104,6 +123,8 @@ void main()
     list.pop_front();
     list.print();
     list.push_back(123);
+    list.print();
+    list.pop_back();
     list.print();
 }
 
