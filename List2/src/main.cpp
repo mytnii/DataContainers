@@ -135,24 +135,13 @@ public:
         {
             return Temp->Data;
         }
+
+        operator bool()const
+        {
+            return Temp;
+        }
     };
 
-Iterator begin()
-{
-    return Head;
-}
-Iterator end()
-{
-    return nullptr;
-}
-ReverseIterator rbegin()
-{
-    return Tail;
-}
-ReverseIterator rend()
-{
-    return nullptr;
-}
     /*---------------------Constructors-------------------------*/
     List()
     {
@@ -302,6 +291,22 @@ ReverseIterator rend()
     //}
 
     /*------------------------------Methods-------------------------------*/
+Iterator begin()
+{
+    return Head;
+}
+Iterator end()
+{
+    return nullptr;
+}
+ReverseIterator rbegin()
+{
+    return Tail;
+}
+ReverseIterator rend()
+{
+    return nullptr;
+}
 
     void print()const
     {
@@ -352,6 +357,13 @@ void main()
     {
         cout << i << "\t";
     }
+    cout << endl;
+
+    for (List::ReverseIterator it = list.rbegin(); it; ++it)
+    {
+        cout << *it << "\t";
+    }
+    cout << endl;
 }
 
 
