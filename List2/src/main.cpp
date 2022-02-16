@@ -24,6 +24,135 @@ class List
     size_t size;
 public:
 
+    class Iterator
+    {
+        Element* Temp;
+    public:
+        Iterator(Element* Temp) :Temp(Temp)
+        {
+            cout << "IConstructor:\t" << this << endl;
+        }
+        ~Iterator()
+        {
+            cout << "IDestructor:\t" << this << endl;
+        }
+
+        bool operator!=(const Iterator& other)const
+        {
+            return this->Temp != other.Temp;
+        }
+
+        bool operator==(const Iterator& other)const
+        {
+            return this->Temp == other.Temp;
+        }
+
+        Iterator& operator++()
+        {
+            Temp = Temp->pNext;
+            return *this;
+        }
+        Iterator operator++(int)
+        {
+            Iterator old = *this;
+            Temp = Temp->pNext;
+            return old;
+        }
+
+        Iterator& operator--()
+        {
+            Temp = Temp->pPrev;
+            return *this;
+        }
+        Iterator operator--(int)
+        {
+            Iterator old = *this;
+            Temp = Temp->pPrev;
+            return old;
+        }
+
+        const int& operator*()const
+        {
+            return Temp->Data;
+        }
+        int& operator*()
+        {
+            return Temp->Data;
+        }
+    };
+
+    class ReverseIterator
+    {
+        Element* Temp;
+    public:
+        ReverseIterator(Element* Temp) :Temp(Temp)
+        {
+            cout << "RItConstructor:\t" << this << endl;
+        }
+        ~ReverseIterator()
+        {
+            cout << "RItDestructor:\t" << this << endl;
+        }
+
+        bool operator!=(const ReverseIterator& other)
+        {
+            return this->Temp != other.Temp;
+        }
+
+        bool operator==(const ReverseIterator& other)
+        {
+            return this->Temp == other.Temp;
+        }
+
+        ReverseIterator& operator++()
+        {
+            Temp = Temp->pPrev;
+            return *this;
+        }
+        ReverseIterator operator++(int)
+        {
+            ReverseIterator old = *this;
+            Temp = Temp->pPrev;
+            return old;
+        }
+
+        ReverseIterator& operator--()
+        {
+            Temp = Temp->pNext;
+            return *this;
+        }
+        ReverseIterator operator--(int)
+        {
+            ReverseIterator old = *this;
+            Temp = Temp->pNext;
+            return old;
+        }
+        const int& operator*()const
+        {
+            return Temp->Data;
+        }
+        int& operator*()
+        {
+            return Temp->Data;
+        }
+    };
+
+Iterator begin()
+{
+    return Head;
+}
+Iterator end()
+{
+    return nullptr;
+}
+ReverseIterator rbegin()
+{
+    return Tail;
+}
+ReverseIterator rend()
+{
+    return nullptr;
+}
     /*---------------------Constructors-------------------------*/
     List()
     {
@@ -31,9 +160,19 @@ public:
         size = 0;
         cout << "LConstructor:\t" << this << endl;
     }
+
+    List(const std::initializer_list<int>& il) :List()
+    {
+        cout << typeid(il.begin()).name() << endl;;
+        for (int const* it = il.begin(); it != il.end(); it++)
+        {
+            push_back(*it);
+        }
+    }
     ~List()
     {
-        while (Head)pop_front();
+       // while (Head)pop_front();
+        while (Tail)pop_back();
         cout << "LDestructor:\t" << this << endl;
     }
 
@@ -136,6 +275,32 @@ public:
         --size;
     }
 
+    //void erase(const int index)
+    //{
+    //    if (index >= size)
+    //    {
+    //        cout << "Going beyond the list" << endl;
+    //        return;
+    //    }
+    //    if (index == 0)
+    //    {
+    //        pop_front();
+    //        return;
+    //    }
+    //    if (index == size - 1)
+    //    {
+    //        pop_back();
+    //        return;
+    //    }
+    //    Element* Temp;
+
+    //    if (index < size / 2)
+    //    {
+    //        
+    //    }
+
+    //}
+
     /*------------------------------Methods-------------------------------*/
 
     void print()const
@@ -154,9 +319,11 @@ public:
     }
 };
 
+//#define BASE_CHECK
 void main()
 {
     setlocale(LC_ALL, "");
+#ifdef BASE_CHECK
     int size = 6;
     List list;
     for (int i = 0; i < size; i++)
@@ -176,5 +343,15 @@ void main()
     cin >> index;
     list.insert(index, 123);
     list.print();
+    list.revers_print();
+#endif // B
+
+    List list = { 3,5,8,13,21 };
+    list.print();
+    for (int i : list)
+    {
+        cout << i << "\t";
+    }
 }
+
 
