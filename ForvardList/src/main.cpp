@@ -27,9 +27,54 @@ public:
 	}
 
 	friend class ForwardList;
+	friend class Iterator;
 };
 
 int Element::count = 0;
+
+class Iterator
+{
+	Element* Temp;
+public:
+	Iterator(Element* Temp = nullptr) :Temp(Temp)
+	{
+		cout << "ItConstructor" << this << endl;
+	}
+	~Iterator()
+	{
+		cout << "ItDestructor" << this << endl;
+	}
+
+	Iterator& operator ++()
+	{
+		Temp = Temp->pNext;
+		return *this;
+	}
+	Iterator operator ++(int)
+	{
+		Iterator old = *this;
+		Temp = Temp->pNext;
+		return old;
+	}
+
+
+	bool operator ==(const Iterator& other)const//for 
+	{
+		return this->Temp == other.Temp;
+	}
+	bool operator !=(const Iterator& other)const
+	{
+		return this->Temp != other.Temp;
+	}
+	int& operator*()//for 
+	{
+		return Temp->Data;
+	}
+	const int& operator*()const//for 
+	{
+		return Temp->Data;
+	}
+};
 
 class ForwardList
 {
@@ -47,6 +92,23 @@ public:
 	{
 		while (Head)pop_front();
 		cout << "LDestructor:\t" << this << endl;
+	}
+
+	/*------------------------Operators------------------------------*/
+
+	int& operator[](int n)
+	{
+		Element* temp = Head;
+
+		for (int i = 0; i < n; i++)++temp;
+		return temp->Data;
+	}
+	const int& operator[](int n)const
+	{
+		Element* temp = Head;
+
+		for (int i = 0; i < n; i++)++temp;
+		return temp->Data;
 	}
 
 	//-------------------------Addigng elements----------------------
@@ -143,6 +205,10 @@ public:
 		{
 			return pop_front();
 		}
+		if (index == size)
+		{
+			pop_back();
+		}
 		Element* Temp = Head;
 		for (int i = 0; i < index - 1; i++)
 		{
@@ -168,22 +234,55 @@ public:
 		cout << "Общее количество элементов: " << Head->count << endl;
 	}
 
-	void unique(int del_number)
+	void unique()
 	{
-		int index = 1;
 		Element* Temp = Head;
-		while (Temp->pNext->pNext)
+		while (Temp)
 		{
-			if (Temp->Data == del_number)
+			Element* Erased = Head;
+			Element* Temp2 = nullptr;
+			while (Erased)
 			{
-				if (index == 1)
+				if (Temp == Erased || Temp->Data != Erased->Data)
 				{
-					pop_front();
+					Temp2 = Erased;
+					Erased = Erased->pNext;
+				}
+				else
+				{
+					Temp2->pNext = Erased->pNext;
+					delete Erased;
+					Erased = Temp2->pNext;
+					--size;
 				}
 			}
 			Temp = Temp->pNext;
 		}
 	}
+
+	void reverse()
+	{
+		Element* Temp = nullptr;
+
+		while (Head)
+		{
+			Element* New = new Element(Head->Data);
+			New->pNext = Temp;
+			Temp = New;
+			/*cout << Temp->Data << endl;*/
+			/*Element* Erased = Head;
+			Head = Head->pNext;
+			delete Erased;*/
+			pop_front();
+		}
+		/*while (Temp)
+		{
+			cout << Temp->Data << "\t";
+			Temp = Temp->pNext;
+		}*/
+		Head = Temp;
+	}
+
 
 	friend void list_completion(ForwardList& list, const int size);
 };
@@ -278,14 +377,14 @@ void main()
 	list_completion(list, size);
 	list.print();
 
-	int del_number;
-
-	cout << "Введите удаляемое число: ";
-	cin >> del_number;
+	list.push_back(9);
+	list.print();
 
 
+	list.unique();
+	list.print();
 
-	list.unique(del_number);
+	list.reverse();
 	list.print();
 
 }
