@@ -494,11 +494,31 @@ Iterator end()
 {
     return nullptr;
 }
+
+ConstIterator cbegin()
+{
+    return Head;
+}
+ConstIterator cend()
+{
+    return nullptr;
+}
+
+
 ReverseIterator rbegin()
 {
     return Tail;
 }
 ReverseIterator rend()
+{
+    return nullptr;
+}
+
+ConstReverseIterator crbegin()
+{
+    return Tail;
+}
+ConstReverseIterator crend()
 {
     return nullptr;
 }
