@@ -36,7 +36,7 @@ class List
 
 		/*----------------------Destructor---------------------------*/
 
-		virtual~BaseIterator()
+		~BaseIterator()
 		{
 			cout << "BaDestructor:\t" << this << endl;
 		}
