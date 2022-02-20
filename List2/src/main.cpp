@@ -36,13 +36,14 @@ class List
 
 		/*----------------------Destructor---------------------------*/
 
-		~BaseIterator()
+		virtual~BaseIterator()
 		{
 			cout << "BaDestructor:\t" << this << endl;
 		}
 
 		/*----------------------Operators------------------------------*/
-
+		virtual BaseIterator& operator++() = 0;
+		virtual BaseIterator& operator--() = 0;
 		bool operator==(const BaseIterator& other)const
 		{
 			return this->Temp == other.Temp;
@@ -56,6 +57,10 @@ class List
 		const int& operator*()const
 		{
 			return Temp->Data;
+		}
+		operator bool()const
+		{
+			return Temp;
 		}
 	};
 public:
@@ -131,12 +136,6 @@ public:
 		{
 			return Temp->Data;
 		}
-
-		operator bool()const
-		{
-			return Temp;
-		}
-
 	};
 
 	class ConstReverseIterator :public BaseIterator
@@ -210,10 +209,6 @@ public:
 		int& operator*()
 		{
 			return Temp->Data;
-		}
-		operator bool()const
-		{
-			return Temp;
 		}
 	};
 #ifdef DEBUG
@@ -441,10 +436,13 @@ public:
 			return;
 		}
 		
-			if(Head)Head = Head->pNext;
-		       delete Head->pPrev;
+		if (Head)
+		{
+			Head = Head->pNext;
+			delete Head->pPrev;
 			Head->pPrev = nullptr;
 			--size;
+		}
 	}
 
 	void pop_back()
@@ -497,11 +495,11 @@ public:
 		return nullptr;
 	}
 
-	ConstIterator cbegin()
+	ConstIterator cbegin()const
 	{
 		return Head;
 	}
-	ConstIterator cend()
+	ConstIterator cend()const
 	{
 		return nullptr;
 	}
@@ -516,11 +514,11 @@ public:
 		return nullptr;
 	}
 
-	ConstReverseIterator crbegin()
+	ConstReverseIterator crbegin()const
 	{
 		return Tail;
 	}
-	ConstReverseIterator crend()
+	ConstReverseIterator crend()const
 	{
 		return nullptr;
 	}
