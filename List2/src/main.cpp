@@ -127,10 +127,10 @@ public:
 
         /*------------------------------------Operators------------------------------*/
 
-       /* int& operator*()
+        int& operator*()
         {
             return Temp->Data;
-        }*/
+        }
 
         operator bool()const
         {
@@ -207,10 +207,10 @@ public:
 
         /*-----------------------------Operators-------------------------------*/
 
-        //int& operator*()
-        //{
-        //    return Temp->Data;
-        //}
+        int& operator*()
+        {
+            return Temp->Data;
+        }
         operator bool()const
         {
             return Temp;
