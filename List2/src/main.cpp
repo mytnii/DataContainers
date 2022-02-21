@@ -2,24 +2,31 @@
 
 using namespace std;
 
+template<typename T>
 class List
 {
 	class Element
 	{
-		int Data;
+		T Data;
 		Element* pNext;
 		Element* pPrev;
 	public:
-		Element(int Data, Element* pNext = nullptr, Element* pPrev = nullptr) :
+		Element(T Data, Element* pNext = nullptr, Element* pPrev = nullptr) :
 			Data(Data), pNext(pNext), pPrev(pPrev)
 		{
+#ifdef DEBUG
 			cout << "EConstructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 		~Element()
 		{
+#ifdef DEBUG
 			cout << "EDestructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
-		friend class List;
+		friend class List<T>;
 	}*Head, * Tail;
 	size_t size;
 	class BaseIterator
@@ -31,14 +38,20 @@ class List
 
 		BaseIterator(Element* Temp) :Temp(Temp)
 		{
+#ifdef DEBUG
 			cout << "BaConstructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*----------------------Destructor---------------------------*/
 
 		~BaseIterator()
 		{
+#ifdef DEBUG
 			cout << "BaDestructor:\t" << this << endl;
+
+#endif // DEBUG
 		}
 
 		/*----------------------Operators------------------------------*/
@@ -54,7 +67,7 @@ class List
 			return this->Temp != other.Temp;
 		}
 
-		const int& operator*()const
+		const T& operator*()const
 		{
 			return Temp->Data;
 		}
@@ -71,14 +84,20 @@ public:
 
 		ConstIterator(Element* Temp) :BaseIterator(Temp)
 		{
+#ifdef DEBUG
 			cout << "CoConstructors:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*----------------Destructor----------------------------*/
 
 		~ConstIterator()
 		{
+#ifdef DEBUG
 			cout << "CoDestructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*------------------Operators------------------------------*/
@@ -120,19 +139,25 @@ public:
 
 		Iterator(Element* Temp) :ConstIterator(Temp)
 		{
+#ifdef DEBUG
 			cout << "IConstructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*---------------------------------Destructor------------------------------*/
 
 		~Iterator()
 		{
+#ifdef DEBUG
 			cout << "IDEstructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*------------------------------------Operators------------------------------*/
 
-		int& operator*()
+		T& operator*()
 		{
 			return Temp->Data;
 		}
@@ -146,14 +171,20 @@ public:
 
 		ConstReverseIterator(Element* Temp) :BaseIterator(Temp)
 		{
+#ifdef DEBUG
 			cout << "CoReIConstructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*----------------------------------Destructor---------------------------------*/
 
 		~ConstReverseIterator()
 		{
+#ifdef DEBUG
 			cout << "CoReIDestructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*------------------------------------Operators---------------------------------*/
@@ -194,19 +225,25 @@ public:
 
 		ReverseIterator(Element* Temp) :ConstReverseIterator(Temp)
 		{
+#ifdef DEBUG
 			cout << "ReIConstructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*--------------------------Destructor-------------------------------*/
 
 		~ReverseIterator()
 		{
+#ifdef DEBUG
 			cout << "ReIDestructor:\t" << this << endl;
+#endif // DEBUG
+
 		}
 
 		/*-----------------------------Operators-------------------------------*/
 
-		int& operator*()
+		T& operator*()
 		{
 			return Temp->Data;
 		}
@@ -340,10 +377,10 @@ public:
 		cout << "LConstructor:\t" << this << endl;
 	}
 
-	List(const std::initializer_list<int>& il) :List()
+	List(const std::initializer_list<T>& il) :List()
 	{
 		cout << typeid(il.begin()).name() << endl;;
-		for (int const* it = il.begin(); it != il.end(); it++)
+		for (T const* it = il.begin(); it != il.end(); it++)
 		{
 			push_back(*it);
 		}
@@ -356,7 +393,7 @@ public:
 	}
 
 	/*------------------Adding elements------------------------*/
-	void push_front(const int Data)
+	void push_front(const T Data)
 	{
 		if (Head == nullptr && Tail == nullptr)
 		{
@@ -367,7 +404,7 @@ public:
 			if(Head)Head = Head->pPrev = new Element(Data, Head);
 			++size;
 	}
-	void push_back(const int Data)
+	void push_back(const T Data)
 	{
 		if (Head == nullptr && Tail == nullptr)
 		{
@@ -378,7 +415,7 @@ public:
 		++size;
 	}
 
-	void insert(const int index, const int Data)
+	void insert(const int index, const T Data)
 	{
 		if (index > size)
 		{
@@ -568,7 +605,7 @@ void main()
 #endif // B
 
 #ifdef RANGE_BASED_FOR_LIST
-	List list = { 3,5,8,13,21 };
+	List<int> list = { 3,5,8,13,21 };
 	list.print();
 	for (int i : list)
 	{
@@ -576,13 +613,39 @@ void main()
 	}
 	cout << endl;
 
-	for (List::ReverseIterator it = list.rbegin(); it; ++it)
+	for (List<int>::ReverseIterator it = list.rbegin(); it; ++it)
 	{
 		cout << *it << "\t";
 	}
 	cout << endl;
 #endif // RAN
 
+	List<double> d_list = { 2.5, 3.14, 5.2, 8.3 };
+
+	for (double i : d_list)
+	{
+		cout << i << "\t";
+	}
+	cout << endl;
+	for (List<double>::ReverseIterator it = d_list.rbegin(); it; ++it)
+	{
+		cout << *it << "\t";
+	}
+	cout << endl;
+
+	List<std::string> s_list = { "Have", "a", "nice", "day" };
+
+	for (std::string i : s_list)
+	{
+		cout << i << "\t";
+	}
+	cout << endl;
+
+	for (List<std::string>::ReverseIterator it = s_list.rbegin(); it != s_list.rend(); ++it)
+	{
+		cout << *it << "\t";
+	}
+	cout << endl;
 }
 
 
