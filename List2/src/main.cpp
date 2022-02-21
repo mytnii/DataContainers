@@ -370,131 +370,21 @@ public:
 #endif // DEBUG
 
 	/*---------------------Constructors-------------------------*/
-	List()
-	{
-		Head = Tail = nullptr;
-		size = 0;
-		cout << "LConstructor:\t" << this << endl;
-	}
+	List();
 
-	List(const std::initializer_list<T>& il) :List()
-	{
-		cout << typeid(il.begin()).name() << endl;;
-		for (T const* it = il.begin(); it != il.end(); it++)
-		{
-			push_back(*it);
-		}
-	}
-	~List()
-	{
-		// while (Head)pop_front();
-		while (Tail)pop_back();
-		cout << "LDestructor:\t" << this << endl;
-	}
+	List(const std::initializer_list<T>& il);
+	~List();
 
 	/*------------------Adding elements------------------------*/
-	void push_front(const T Data)
-	{
-		if (Head == nullptr && Tail == nullptr)
-		{
-			Head = Tail = new Element(Data);
-			size++;
-			return;
-		}
-			if(Head)Head = Head->pPrev = new Element(Data, Head);
-			++size;
-	}
-	void push_back(const T Data)
-	{
-		if (Head == nullptr && Tail == nullptr)
-		{
-			push_front(Data);
-			return;
-		}
-		Tail = Tail->pNext = new Element(Data, nullptr, Tail);
-		++size;
-	}
+	void push_front(const T Data);
+	void push_back(const T Data);
 
-	void insert(const int index, const T Data)
-	{
-		if (index > size)
-		{
-			cout << "Going beyond the list" << endl;
-			return;
-		}
-		if (index == 0)
-		{
-			push_front(Data);
-			return;
-		}
-		if (index == size)
-		{
-			push_back(Data);
-			return;
-		}
-
-		Element* Temp;
-
-		if (index < size / 2)
-		{
-			Temp = Head;
-			for (int i = 0; i < index; ++i)
-			{
-				Temp = Temp->pNext;
-			}
-		}
-		else
-		{
-			Temp = Tail;
-			for (int i = 0; i < size - index - 1; ++i)
-			{
-				Temp = Temp->pPrev;
-			}
-		}
-
-		/*Element* New = new Element(Data);
-		New->pNext = Temp;
-		New->pPrev = Temp->pPrev;
-		Temp->pPrev->pNext = New;
-		Temp->pPrev = New;*/
-		Temp->pPrev = Temp->pPrev->pNext = new Element(Data, Temp, Temp->pPrev);
-		++size;
-	}
+	void insert(const int index, const T Data);
 
 	/*-----------------------Remowing elements-----------------------------------*/
-	void pop_front()
-	{
-		if (Head == nullptr && Tail == nullptr)return;
-		if (Head == Tail)
-		{
-			delete Head;
-			Head = Tail = nullptr;
-			--size;
-			return;
-		}
-		
-		if (Head)
-		{
-			Head = Head->pNext;
-			delete Head->pPrev;
-			Head->pPrev = nullptr;
-			--size;
-		}
-	}
+	void pop_front();
 
-	void pop_back()
-	{
-		if (Head == Tail)
-		{
-			pop_front();
-			return;
-		}
-
-		Tail = Tail->pPrev;
-		delete Tail->pNext;
-		Tail->pNext = nullptr;
-		--size;
-	}
+	void pop_back();
 
 	//void erase(const int index)
 	//{
@@ -523,59 +413,221 @@ public:
 	//}
 
 	/*------------------------------Methods-------------------------------*/
-	Iterator begin()
-	{
-		return Head;
-	}
-	Iterator end()
-	{
-		return nullptr;
-	}
+	Iterator begin();
+	Iterator end();
 
-	ConstIterator cbegin()const
-	{
-		return Head;
-	}
-	ConstIterator cend()const
-	{
-		return nullptr;
-	}
+	ConstIterator cbegin()const;
+	ConstIterator cend()const;
 
 
-	ReverseIterator rbegin()
-	{
-		return Tail;
-	}
-	ReverseIterator rend()
-	{
-		return nullptr;
-	}
+	ReverseIterator rbegin();
+	ReverseIterator rend();
 
-	ConstReverseIterator crbegin()const
-	{
-		return Tail;
-	}
-	ConstReverseIterator crend()const
-	{
-		return nullptr;
-	}
+	ConstReverseIterator crbegin()const;
+	ConstReverseIterator crend()const;
 
-	void print()const
-	{
-		for (Element* Temp = Head; Temp; Temp = Temp->pNext)
-			cout << Temp->pPrev << "\t" << Temp << "\t"
-			<< Temp->Data << "\t" << Temp->pNext << endl;
-		cout << "Количество элементов списка:\t" << size << endl;
-	}
-	void revers_print()const
-	{
-		for (Element* Temp = Tail; Temp; Temp = Temp->pPrev)
-			cout << Temp->pPrev << "\t" << Temp << "\t"
-			<< Temp->Data << "\t" << Temp->pNext << endl;
-		cout << "Количество элементов списка:\t" << size << endl;
-	}
+	void print()const;
+	void revers_print()const;
 };
 
+template<typename T>List<T>::List()
+{
+	Head = Tail = nullptr;
+	size = 0;
+	cout << "LConstructor:\t" << this << endl;
+}
+
+template<typename T>List<T>::List(const std::initializer_list<T>& il) :List()
+{
+	cout << typeid(il.begin()).name() << endl;;
+	for (T const* it = il.begin(); it != il.end(); it++)
+	{
+		push_back(*it);
+	}
+}
+template<typename T>List<T>::~List()
+{
+	// while (Head)pop_front();
+	while (Tail)pop_back();
+	cout << "LDestructor:\t" << this << endl;
+}
+
+/*------------------Adding elements------------------------*/
+
+template<typename T>
+void List<T>::push_front(const T Data)
+{
+	if (Head == nullptr && Tail == nullptr)
+	{
+		Head = Tail = new Element(Data);
+		size++;
+		return;
+	}
+	if (Head)Head = Head->pPrev = new Element(Data, Head);
+	++size;
+}
+
+template<typename T>
+void List<T>::push_back(const T Data)
+{
+	if (Head == nullptr && Tail == nullptr)
+	{
+		push_front(Data);
+		return;
+	}
+	Tail = Tail->pNext = new Element(Data, nullptr, Tail);
+	++size;
+}
+
+template<typename T>
+void List<T>::insert(const int index, const T Data)
+{
+	if (index > size)
+	{
+		cout << "Going beyond the list" << endl;
+		return;
+	}
+	if (index == 0)
+	{
+		push_front(Data);
+		return;
+	}
+	if (index == size)
+	{
+		push_back(Data);
+		return;
+	}
+
+	Element* Temp;
+
+	if (index < size / 2)
+	{
+		Temp = Head;
+		for (int i = 0; i < index; ++i)
+		{
+			Temp = Temp->pNext;
+		}
+	}
+	else
+	{
+		Temp = Tail;
+		for (int i = 0; i < size - index - 1; ++i)
+		{
+			Temp = Temp->pPrev;
+		}
+	}
+
+	/*Element* New = new Element(Data);
+	New->pNext = Temp;
+	New->pPrev = Temp->pPrev;
+	Temp->pPrev->pNext = New;
+	Temp->pPrev = New;*/
+	Temp->pPrev = Temp->pPrev->pNext = new Element(Data, Temp, Temp->pPrev);
+	++size;
+}
+
+/*-----------------------Remowing elements-----------------------------------*/
+
+template<typename T>
+void List<T>::pop_front()
+{
+	if (Head == nullptr && Tail == nullptr)return;
+	if (Head == Tail)
+	{
+		delete Head;
+		Head = Tail = nullptr;
+		--size;
+		return;
+	}
+
+	if (Head)
+	{
+		Head = Head->pNext;
+		delete Head->pPrev;
+		Head->pPrev = nullptr;
+		--size;
+	}
+}
+
+template<typename T>
+void List<T>::pop_back()
+{
+	if (Head == Tail)
+	{
+		pop_front();
+		return;
+	}
+
+	Tail = Tail->pPrev;
+	delete Tail->pNext;
+	Tail->pNext = nullptr;
+	--size;
+}
+
+template<typename T>
+typename List<T>::Iterator List<T>::begin()
+{
+	return Head;
+}
+template<typename T>
+typename List<T>::Iterator List<T>::end()
+{
+	return nullptr;
+}
+
+template<typename T>
+typename List<T>::ConstIterator List<T>::cbegin()const
+{
+	return Head;
+}
+
+template<typename T>
+typename List<T>::ConstIterator List<T>::cend()const
+{
+	return nullptr;
+}
+
+template<typename T>
+typename List<T>::ReverseIterator List<T>::rbegin()
+{
+	return Tail;
+}
+
+template<typename T>
+typename List<T>::ReverseIterator List<T>::rend()
+{
+	return nullptr;
+}
+
+template<typename T>
+typename List<T>::ConstReverseIterator List<T>::crbegin()const
+{
+	return Tail;
+}
+
+template<typename T>
+typename List<T>::ConstReverseIterator List<T>::crend()const
+{
+	return nullptr;
+}
+
+template<typename T>
+void List<T>::print()const
+{
+	for (Element* Temp = Head; Temp; Temp = Temp->pNext)
+		cout << Temp->pPrev << "\t" << Temp << "\t"
+		<< Temp->Data << "\t" << Temp->pNext << endl;
+	cout << "Количество элементов списка:\t" << size << endl;
+}
+
+template<typename T>
+void List<T>::revers_print()const
+{
+	for (Element* Temp = Tail; Temp; Temp = Temp->pPrev)
+		cout << Temp->pPrev << "\t" << Temp << "\t"
+		<< Temp->Data << "\t" << Temp->pNext << endl;
+	cout << "Количество элементов списка:\t" << size << endl;
+}
 //#define BASE_CHECK
 #define RANGE_BASED_FOR_LIST
 void main()
