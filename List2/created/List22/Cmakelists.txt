@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+
+project(List22)
+
+add_library(List22 STATIC include/List.h src/List.cpp)
+target_include_directories(List22 PUBLIC include/)
