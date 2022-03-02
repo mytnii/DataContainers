@@ -1,5 +1,5 @@
 
-#include "list.h"
+#include <list.h>
 
 template<typename T>List<T>::Element::Element(T Data, Element* pNext, Element* pPrev) :
 	Data(Data), pNext(pNext), pPrev(pPrev)

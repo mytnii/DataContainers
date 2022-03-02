@@ -4,3 +4,5 @@ project(List22)
 
 add_library(List22 STATIC include/List.h src/List.cpp)
 target_include_directories(List22 PUBLIC include/)
+
+target_include_directories(List22 PUBLIC src/)

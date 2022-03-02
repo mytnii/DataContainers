@@ -125,118 +125,43 @@ public:
 	{
 		Element* Temp;
 	public:
-		Iterator(Element* Temp) :Temp(Temp)
-		{
-			cout << "IConstructor:\t" << this << endl;
-		}
-		~Iterator()
-		{
-			cout << "IDestructor:\t" << this << endl;
-		}
+		Iterator(Element* Temp);
+		~Iterator();
 
-		bool operator!=(const Iterator& other)const
-		{
-			return this->Temp != other.Temp;
-		}
+		bool operator!=(const Iterator& other)const;
 
-		bool operator==(const Iterator& other)const
-		{
-			return this->Temp == other.Temp;
-		}
+		bool operator==(const Iterator& other)const;
 
-		Iterator& operator++()
-		{
-			Temp = Temp->pNext;
-			return *this;
-		}
-		Iterator operator++(int)
-		{
-			Iterator old = *this;
-			Temp = Temp->pNext;
-			return old;
-		}
+		Iterator& operator++();
+		Iterator operator++(int);
 
-		Iterator& operator--()
-		{
-			Temp = Temp->pPrev;
-			return *this;
-		}
-		Iterator operator--(int)
-		{
-			Iterator old = *this;
-			Temp = Temp->pPrev;
-			return old;
-		}
+		Iterator& operator--();
+		Iterator operator--(int);
 
-		const int& operator*()const
-		{
-			return Temp->Data;
-		}
-		int& operator*()
-		{
-			return Temp->Data;
-		}
+		const int& operator*()const;
+		int& operator*();
 	};
 
 	class ReverseIterator
 	{
 		Element* Temp;
 	public:
-		ReverseIterator(Element* Temp) :Temp(Temp)
-		{
-			cout << "RItConstructor:\t" << this << endl;
-		}
-		~ReverseIterator()
-		{
-			cout << "RItDestructor:\t" << this << endl;
-		}
+		ReverseIterator(Element* Temp);
+		~ReverseIterator();
 
-		bool operator!=(const ReverseIterator& other)
-		{
-			return this->Temp != other.Temp;
-		}
+		bool operator!=(const ReverseIterator& other);
 
-		bool operator==(const ReverseIterator& other)
-		{
-			return this->Temp == other.Temp;
-		}
+		bool operator==(const ReverseIterator& other);
 
-		ReverseIterator& operator++()
-		{
-			Temp = Temp->pPrev;
-			return *this;
-		}
-		ReverseIterator operator++(int)
-		{
-			ReverseIterator old = *this;
-			Temp = Temp->pPrev;
-			return old;
-		}
+		ReverseIterator& operator++();
+		ReverseIterator operator++(int);
 
-		ReverseIterator& operator--()
-		{
-			Temp = Temp->pNext;
-			return *this;
-		}
-		ReverseIterator operator--(int)
-		{
-			ReverseIterator old = *this;
-			Temp = Temp->pNext;
-			return old;
-		}
-		const int& operator*()const
-		{
-			return Temp->Data;
-		}
-		int& operator*()
-		{
-			return Temp->Data;
-		}
+		ReverseIterator& operator--();
+		ReverseIterator operator--(int);
+		const int& operator*()const;
+		int& operator*();
 
-		operator bool()const
-		{
-			return Temp;
-		}
+		operator bool()const;
 	};
 
 #endif // DEBUG

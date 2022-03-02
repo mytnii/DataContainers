@@ -1,6 +1,5 @@
-﻿#include"List.h"
-#include"List.cpp"
-
+﻿#include<List.h>
+#include<List.cpp>
 
 //#define BASE_CHECK
 #define RANGE_BASED_FOR_LIST
