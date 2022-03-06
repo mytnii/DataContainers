@@ -1,0 +1,183 @@
+﻿  main.cpp
+F:\Repository\DataContainers\List2\created\List22\include\list.h(228,2): error C2953: List: шаблон класса уже определен
+F:\Repository\DataContainers\List2\created\List22\include\list.h(5): message : см. объявление "List"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(212,1): error C2244: List::List: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(211): message : см. объявление "List::List"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(212,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(212,1): message : 'List::List(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(212,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(212,1): message : 'List<T>::List(const std::initializer_list<_Elem> &)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(212,1): message : 'List<T>::List(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218,71): error C2244: List::List: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218): message : см. объявление "List::List"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218,71): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218,71): message : 'List::List(const std::initializer_list<_Elem> &)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218,71): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218,71): message : 'List<T>::List(const std::initializer_list<_Elem> &)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(218,71): message : 'List<T>::List(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(227,1): error C2244: List::~List: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(226): message : см. объявление "List::~List"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(227,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(227,1): message : 'List::~List(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(227,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(227,1): message : 'List<T>::~List(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(237,1): error C2244: List::push_front: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(236): message : см. объявление "List::push_front"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(237,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(237,1): message : 'void List::push_front(const T)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(237,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(237,1): message : 'void List<T>::push_front(const T)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(250,1): error C2244: List::push_back: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(249): message : см. объявление "List::push_back"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(250,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(250,1): message : 'void List::push_back(const T)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(250,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(250,1): message : 'void List<T>::push_back(const T)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(262,1): error C2244: List::insert: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(261): message : см. объявление "List::insert"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(262,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(262,1): message : 'void List::insert(const int,const T)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(262,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(262,1): message : 'void List<T>::insert(const int,const T)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(311,1): error C2244: List::pop_front: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(310): message : см. объявление "List::pop_front"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(311,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(311,1): message : 'void List::pop_front(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(311,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(311,1): message : 'void List<T>::pop_front(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(332,1): error C2244: List::pop_back: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(331): message : см. объявление "List::pop_back"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(332,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(332,1): message : 'void List::pop_back(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(332,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(332,1): message : 'void List<T>::pop_back(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(347,1): error C2244: List::begin: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(346): message : см. объявление "List::begin"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(347,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(347,1): message : 'List<T>::Iterator List::begin(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(347,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(347,1): message : 'List<T>::Iterator List<T>::begin(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(352,1): error C2244: List::end: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(351): message : см. объявление "List::end"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(352,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(352,1): message : 'List<T>::Iterator List::end(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(352,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(352,1): message : 'List<T>::Iterator List<T>::end(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(358,1): error C2244: List::cbegin: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(357): message : см. объявление "List::cbegin"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(358,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(358,1): message : 'List<T>::ConstIterator List::cbegin(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(358,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(358,1): message : 'List<T>::ConstIterator List<T>::cbegin(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(364,1): error C2244: List::cend: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(363): message : см. объявление "List::cend"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(364,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(364,1): message : 'List<T>::ConstIterator List::cend(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(364,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(364,1): message : 'List<T>::ConstIterator List<T>::cend(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(370,1): error C2244: List::rbegin: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(369): message : см. объявление "List::rbegin"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(370,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(370,1): message : 'List<T>::ReverseIterator List::rbegin(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(370,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(370,1): message : 'List<T>::ReverseIterator List<T>::rbegin(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(376,1): error C2244: List::rend: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(375): message : см. объявление "List::rend"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(376,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(376,1): message : 'List<T>::ReverseIterator List::rend(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(376,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(376,1): message : 'List<T>::ReverseIterator List<T>::rend(void)'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(382,1): error C2244: List::crbegin: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(381): message : см. объявление "List::crbegin"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(382,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(382,1): message : 'List<T>::ConstReverseIterator List::crbegin(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(382,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(382,1): message : 'List<T>::ConstReverseIterator List<T>::crbegin(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(388,1): error C2244: List::crend: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(387): message : см. объявление "List::crend"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(388,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(388,1): message : 'List<T>::ConstReverseIterator List::crend(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(388,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(388,1): message : 'List<T>::ConstReverseIterator List<T>::crend(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(394,1): error C2244: List::print: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(393): message : см. объявление "List::print"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(394,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(394,1): message : 'void List::print(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(394,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(394,1): message : 'void List<T>::print(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(403,1): error C2244: List::revers_print: не удается сопоставить определение функции существующему объявлению
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(402): message : см. объявление "List::revers_print"
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(403,1): message : определение
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(403,1): message : 'void List::revers_print(void) const'
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(403,1): message : существующие объявления
+F:\Repository\DataContainers\List2\created\List22\src\List.cpp(403,1): message : 'void List<T>::revers_print(void) const'
+F:\Repository\DataContainers\List2\src\main.cpp(33,33): error C2514: "List": невозможно создать шаблон класса.
+F:\Repository\DataContainers\List2\created\List22\include\list.h(5): message : см. объявление "List"
+F:\Repository\DataContainers\List2\src\main.cpp(34,13): error C2662: void List<T>::print(void) const: невозможно преобразовать указатель "this" из "List" в "const List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(34,13): message : Причина: невозможно преобразовать "List" в "const List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(34,2): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(226,7): message : см. объявление "List<T>::print"
+F:\Repository\DataContainers\List2\src\main.cpp(35,15): error C2662: List<T>::Iterator List<T>::begin(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(36,2): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(35,15): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(213,11): message : см. объявление "List<T>::begin"
+F:\Repository\DataContainers\List2\src\main.cpp(35,15): error C2662: List<T>::Iterator List<T>::end(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(36,2): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(35,15): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(214,11): message : см. объявление "List<T>::end"
+F:\Repository\DataContainers\List2\src\main.cpp(36,2): error C3536: <begin>$L0: не может использоваться до инициализации
+F:\Repository\DataContainers\List2\src\main.cpp(36,2): error C3536: <end>$L0: не может использоваться до инициализации
+F:\Repository\DataContainers\List2\src\main.cpp(35,19): error C2100: недопустимое косвенное обращение
+F:\Repository\DataContainers\List2\src\main.cpp(41,51): error C2662: List<T>::ReverseIterator List<T>::rbegin(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(41,51): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(41,39): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(220,18): message : см. объявление "List<T>::rbegin"
+F:\Repository\DataContainers\List2\src\main.cpp(41,37): error C2512: List<T>::ReverseIterator: нет подходящего конструктора по умолчанию
+F:\Repository\DataContainers\List2\created\List22\include\list.h(108,1): message : см. объявление "List<T>::ReverseIterator"
+F:\Repository\DataContainers\List2\src\main.cpp(43,15): warning C4552: "<<": результат выражения не используется
+F:\Repository\DataContainers\List2\src\main.cpp(48,46): error C2514: "List": невозможно создать шаблон класса.
+F:\Repository\DataContainers\List2\created\List22\include\list.h(5): message : см. объявление "List"
+F:\Repository\DataContainers\List2\src\main.cpp(50,18): error C2662: List<T>::Iterator List<T>::begin(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(51,2): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(50,18): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(213,11): message : см. объявление "List<T>::begin"
+F:\Repository\DataContainers\List2\src\main.cpp(50,18): error C2662: List<T>::Iterator List<T>::end(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(51,2): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(50,18): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(214,11): message : см. объявление "List<T>::end"
+F:\Repository\DataContainers\List2\src\main.cpp(51,2): error C3536: <begin>$L1: не может использоваться до инициализации
+F:\Repository\DataContainers\List2\src\main.cpp(51,2): error C3536: <end>$L1: не может использоваться до инициализации
+F:\Repository\DataContainers\List2\src\main.cpp(50,24): error C2100: недопустимое косвенное обращение
+F:\Repository\DataContainers\List2\src\main.cpp(55,56): error C2662: List<T>::ReverseIterator List<T>::rbegin(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(55,56): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(55,42): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(220,18): message : см. объявление "List<T>::rbegin"
+F:\Repository\DataContainers\List2\src\main.cpp(55,40): error C2512: List<T>::ReverseIterator: нет подходящего конструктора по умолчанию
+F:\Repository\DataContainers\List2\created\List22\include\list.h(108,1): message : см. объявление "List<T>::ReverseIterator"
+F:\Repository\DataContainers\List2\src\main.cpp(57,15): warning C4552: "<<": результат выражения не используется
+F:\Repository\DataContainers\List2\src\main.cpp(61,58): error C2514: "List": невозможно создать шаблон класса.
+F:\Repository\DataContainers\List2\created\List22\include\list.h(5): message : см. объявление "List"
+F:\Repository\DataContainers\List2\src\main.cpp(63,23): error C2662: List<T>::Iterator List<T>::begin(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(64,2): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(63,23): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(213,11): message : см. объявление "List<T>::begin"
+F:\Repository\DataContainers\List2\src\main.cpp(63,23): error C2662: List<T>::Iterator List<T>::end(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(64,2): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(63,23): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(214,11): message : см. объявление "List<T>::end"
+F:\Repository\DataContainers\List2\src\main.cpp(64,2): error C3536: <begin>$L2: не может использоваться до инициализации
+F:\Repository\DataContainers\List2\src\main.cpp(64,2): error C3536: <end>$L2: не может использоваться до инициализации
+F:\Repository\DataContainers\List2\src\main.cpp(63,29): error C2100: недопустимое косвенное обращение
+F:\Repository\DataContainers\List2\src\main.cpp(63,29): error C2440: инициализация: невозможно преобразовать "int" в "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+F:\Repository\DataContainers\List2\src\main.cpp(64,2): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+F:\Repository\DataContainers\List2\src\main.cpp(69,61): error C2662: List<T>::ReverseIterator List<T>::rbegin(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(69,61): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(69,47): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(220,18): message : см. объявление "List<T>::rbegin"
+F:\Repository\DataContainers\List2\src\main.cpp(69,45): error C2512: List<T>::ReverseIterator: нет подходящего конструктора по умолчанию
+F:\Repository\DataContainers\List2\created\List22\include\list.h(108,1): message : см. объявление "List<T>::ReverseIterator"
+F:\Repository\DataContainers\List2\src\main.cpp(69,82): error C2662: List<T>::ReverseIterator List<T>::rend(void): невозможно преобразовать указатель "this" из "List" в "List<T> &"
+F:\Repository\DataContainers\List2\src\main.cpp(69,82): message : Причина: невозможно преобразовать "List" в "List<T>"
+F:\Repository\DataContainers\List2\src\main.cpp(69,70): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+F:\Repository\DataContainers\List2\created\List22\include\list.h(221,18): message : см. объявление "List<T>::rend"
+F:\Repository\DataContainers\List2\src\main.cpp(71,15): warning C4552: "<<": результат выражения не используется
