@@ -14,6 +14,11 @@ class Element
 	Element* pNext;
 	 static int count;
 public:
+	int getData()const
+	{
+		return Data;
+	}
+
 	Element(int Data, Element* pNext = nullptr) : Data(Data), pNext(pNext)
 	{
 		count++;
@@ -28,6 +33,7 @@ public:
 
 	friend class ForwardList;
 	friend class Iterator;
+	
 };
 
 int Element::count = 0;
@@ -81,6 +87,11 @@ class ForwardList
 	Element* Head;
 	unsigned int size;
 public:
+	Element* get_Head()const
+	{
+		return Head;
+	}
+	
 	ForwardList()
 	{
 		Head = nullptr;
@@ -285,6 +296,28 @@ public:
 
 
 	friend void list_completion(ForwardList& list, const int size);
+	friend class Stack;
+};
+
+class Stack :private ForwardList
+{
+public:
+	void push(int Data)
+	{
+		ForwardList::push_front(Data);
+	}
+	void pop()
+	{
+		ForwardList::pop_front();
+	}
+	int top()const
+	{
+		return get_Head()->getData();
+	}
+	int size()const
+	{
+		return ForwardList::size;
+	}
 };
 
 //#define BASE_CHESK
