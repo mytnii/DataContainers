@@ -333,6 +333,7 @@ public:
 };
 
 
+
 //#define BASE_CHESK
 //#define DESTRUCTOR_CHECK
 //#define HOME_WORK1
